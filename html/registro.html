@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/general.css">
+
+
+    <title>Registro</title>
+</head>
+
+<body>
+    <section class="content">
+        <div class="nav-container">
+        </div>
+        <div class="form-container">
+            <h1>Ingrese información de contacto</h1>
+            <form>
+                <div class="form-input">
+                    <input type="file" name="Foto" id="input-image">
+                </div>
+                <div class="form-input">
+                    <input type="text" name="Nombre completo" id="input-name">
+                </div>
+                <div class="form-input">
+                    <input type="email" name="Correo" id="input-email">
+                </div>
+                <div class="form-input">
+                    <input type="date" name="Fecha de Nacimiento" id="input-birth">
+                </div>
+                <div class="form-input form-radio">
+                    <input type="radio" name="Género" id="input-gender-choice-1" value="0">
+                    <label for="input-gender-choice-1">Masculino</label>
+
+                    <input type="radio" name="Género" id="input-gender-choice-2" value="1">
+                    <label for="input-gender-choice-2">Femenino</label>
+
+                    <input type="radio" name="Género" id="input-gender-choice-3" value="2" checked>
+                    <label for="input-gender-choice-3">Otro</label>
+                </div>
+                <div class="form-input">
+                    <input type="textarea" name="Dirección" id="input-address">
+                </div>
+                <div class="form-input">
+                    <select name="Tipo de Contacto" id="input-contact-type">
+                        <option value="0">Amigos</option>
+                        <option value="1">Familia</option>
+                        <option value="2">Trabajo</option>
+                        <option value="3">Otros</option>
+                    </select>
+                </div>
+                <div class="form-input">
+                    <input type="submit" name="Agregar" id="input-add" value="Agregar">
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+
+</html>
