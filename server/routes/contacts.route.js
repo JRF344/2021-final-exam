@@ -32,12 +32,39 @@ router.post('/add-contact', (req, res) => {
 });
 
 //List contacts
-router.get('/list-contacts', (req, res) => {});
+router.get('/list-contacts', (req, res) => {
+    Contact.find((error, list) => {
+        if (error) {
+            res.json({
+                msj: 'Could not find items (CONTACT_LIST)',
+                error
+            });
+        } else {
+            res.json({
+                msj: 'Users found successfully',
+                list
+            })
+        }
+    });
+});
 
 //Edit contacts
 router.put('/edit-contacts', (req, res) => {});
 
 //Delete contacts
-router.delete('/delete-contact', (req, res) => {});
+router.delete('/delete-contact', (req, res) => {
+    Contact.deleteOne({_id: req.body._id}, error => {
+        if (error) {
+            res.json({
+                msj: 'Could not delete item (CONTACT_DELETE)',
+                error
+            });
+        } else {
+            res.json({
+                msj: 'User deleted successfully',
+            })
+        }
+    });
+});
 
 module.exports = router;

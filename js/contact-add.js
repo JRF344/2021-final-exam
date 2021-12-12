@@ -45,12 +45,12 @@ const validate = () => {
     } else {
         if (birthEpoch >= dateEpoch) {
             inputBirthDate.classList.add('input-error');
-        error = true;
-        console.log("date err 2");
+            error = true;
+            console.log("date err 2");
         } else {
             inputBirthDate.classList.remove('input-error');
         }
-        
+
     }
 
     if (inputGender.value == '') {
@@ -65,6 +65,26 @@ const validate = () => {
         error = true;
     } else {
         inputContactType.classList.remove('input-error');
+    }
+
+    if (error) {
+        Swal.fire({
+            'icon': 'warning',
+            'title': 'Ha ocurrido un error.',
+            'text': 'Por favor verifique los campos resaltados.'
+        });
+    } else {
+        let contact = {
+            profilePicture: inputPicture.value,
+            fullName: inputName.value,
+            email: inputEmail.value,
+            birthDate: inputBirthDate.value,
+            gender: inputGender,
+            address: inputAddress.value,
+            contactType: inputContactType.value
+        };
+
+        pushContact(contact, '/add-contact', 'list.html');
     }
 };
 
