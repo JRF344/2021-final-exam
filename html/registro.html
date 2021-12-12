@@ -35,17 +35,17 @@
                 </div>
                 <div class="form-input">
                     <h2>Fecha de Nacimiento</h2>
-                    <input type="date" name="Fecha de Nacimiento" id="input-birth">
+                    <input type="date" name="Fecha de Nacimiento" id="input-birth-date">
                 </div>
                 <div class="form-input form-radio">
                     <h2>Género</h2>
-                    <input type="radio" name="Género" id="input-gender-choice-1" value="0">
+                    <input class="radio-filter" type="radio" name="Género" id="input-gender-choice-1" value="0">
                     <label for="input-gender-choice-1">Masculino</label>
 
-                    <input type="radio" name="Género" id="input-gender-choice-2" value="1">
+                    <input class="radio-filter" type="radio" name="Género" id="input-gender-choice-2" value="1">
                     <label for="input-gender-choice-2">Femenino</label>
 
-                    <input type="radio" name="Género" id="input-gender-choice-3" value="2" checked>
+                    <input class="radio-filter" type="radio" name="Género" id="input-gender-choice-3" value="2" checked>
                     <label for="input-gender-choice-3">Otro</label>
                 </div>
                 <div class="form-input">
@@ -62,11 +62,20 @@
                     </select>
                 </div>
                 <div class="form-input">
-                    <input type="submit" name="Agregar" id="input-add" value="Agregar">
+                    <button type="button" id="input-button-add">Agregar</button>
                 </div>
             </form>
         </div>
     </section>
+
+    <!--AXIOS-->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!--GENERAL-->
+    <script src="../js/general-service.js"></script>
+
+    <!--PAGE SCRIPTS-->
+    <script src="../js/contact-crud.js"></script>
 </body>
 
 </html>

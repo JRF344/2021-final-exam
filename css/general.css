@@ -14,3 +14,8 @@ h2 {
 .form-input {
     padding: 5px 0;
 }
+
+.input-error {
+    background-color: red;
+    color: white;
+}
