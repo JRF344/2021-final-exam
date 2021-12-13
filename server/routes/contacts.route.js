@@ -1,5 +1,6 @@
 'use strict';
 
+const { request } = require('express');
 const express = require('express');
 const router = express.Router();
 const Contact = require("../models/contacts.model");
@@ -49,7 +50,23 @@ router.get('/list-contacts', (req, res) => {
 });
 
 //Edit contacts
-router.put('/edit-contacts', (req, res) => {});
+router.put('/edit-contacts', (req, res) => {
+    let data = {
+        address: req.body.address
+    }
+    Contact.updateOne({_id: req.body._id}, data, error => {
+        if (error) {
+            res.json({
+                msj: 'Could not update item (CONTACT_UDPATE)',
+                error
+            });
+        } else {
+            res.json({
+                msj: 'User updated successfully',
+            })
+        }
+    })
+});
 
 //Delete contacts
 router.delete('/delete-contact', (req, res) => {

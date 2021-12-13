@@ -1,45 +1,58 @@
 'use strict';
 
 const tableBody = document.querySelector('#contact-list-table tbody');
+const inputFilter = document.querySelector('#content-filter');
 let userList = [];
 
-const listInit = async() => {
+const listInit = async () => {
     userList = await pullContacts('/list-contacts');
-    renderTable();
+    renderTable('');
 }
 
-const renderTable = async() => {
+const renderTable = async (filter) => {
     tableBody.innerHTML = '';
 
     userList.forEach(contact => {
-        let row = tableBody.insertRow();
+        if (contact.fullName.toLowerCase().includes(filter.toLowerCase())) {
+            let row = tableBody.insertRow();
 
-        row.insertCell().innerText = contact.profilePicture;
-        row.insertCell().innerText = contact.fullName;
-        row.insertCell().innerText = contact.email;
-        row.insertCell().innerText = contact.birthDate;
-        row.insertCell().innerText = contact.gender;
-        row.insertCell().innerText = contact.address;
-        row.insertCell().innerText = contact.contactType;
+            let date = moment(contact.birthDate).format("YYYY-MM-DD");
 
-        let functionButton = row.insertCell();
+            row.insertCell().innerText = contact.profilePicture;
+            row.insertCell().innerText = contact.fullName;
+            row.insertCell().innerText = contact.email;
+            row.insertCell().innerText = date;
+            row.insertCell().innerText = contact.gender;
+            row.insertCell().innerText = contact.address;
+            row.insertCell().innerText = contact.contactType;
 
-        let editButton = document.createElement('button');
-        editButton.type = 'button';
-        editButton.innerText = "Editar";
+            let functionButton = row.insertCell();
 
-        let deleteButton = document.createElement('button');
-        deleteButton.type = 'button';
-        deleteButton.innerText = "Borrar";
+            let editButton = document.createElement('button');
+            editButton.type = 'button';
+            editButton.innerText = "Editar";
 
-        deleteButton.addEventListener('click', () => {
-            let _id = contact._id;
-            deleteContact('/delete-contact', _id);
-        })
-        
-        functionButton.appendChild(editButton);
-        functionButton.appendChild(deleteButton);
+            editButton.addEventListener('click', () => {
+                localStorage.setItem('editContact', JSON.stringify(contact));
+                window.location.href = 'edit.html';
+            });
+
+            let deleteButton = document.createElement('button');
+            deleteButton.type = 'button';
+            deleteButton.innerText = "Borrar";
+
+            deleteButton.addEventListener('click', () => {
+                let _id = contact._id;
+                deleteContact('/delete-contact', _id);
+            })
+
+            functionButton.appendChild(editButton);
+            functionButton.appendChild(deleteButton);
+        }
     })
 };
 
 listInit();
+inputFilter.addEventListener('keyup', () => {
+    renderTable(inputFilter.value);
+});

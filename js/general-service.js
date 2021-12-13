@@ -7,7 +7,7 @@ const pushContact = async (pushData, dataEndpoint, redirectUrl) => {
         'method': 'post',
         'url': url,
         data: pushData
-    }).then(response => {
+    }).then(res => {
         Swal.fire({
             'icon': 'success',
             'title': "Contacto agregado exitosamente.",
@@ -43,6 +43,30 @@ const pullContacts = async (dataEndpoint) => {
 
     return list;
 }
+
+const updateContact = async (pushData, dataEndpoint, redirectUrl) => {
+    let url = `http://localhost:8000/api${dataEndpoint}`;
+
+    await axios({
+        'method': 'put',
+        'url': url,
+        data: pushData
+    }).then(res => {
+        Swal.fire({
+            'icon': 'success',
+            'title': "Contacto editado exitosamente.",
+            'text': res.msj
+        }).then(() => {
+            window.location.href = redirectUrl;
+        }).catch(error => {
+            Swal.fire({
+                'icon': 'error',
+                'title': 'Ha ocurrido un error.',
+                'text': `${error}`
+            });
+        })
+    })
+};
 
 const deleteContact = async(dataEndpoint, data_Id) => {
     let url = `http://localhost:8000/api${dataEndpoint}`;
