@@ -1,0 +1,42 @@
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    width: 50%;
+    margin-top: 50px;
+    padding: 0% 15px;
+    border-radius: 100px;
+}
+
+.table-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.search-container input {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.table-spacer {
+    background-color: white;
+    margin-top: 30px;
+    width: 75%;
+    border-radius: 3px;
+    min-height: 200px;
+}
+.output-table {
+    width: 100%;
+}
+
+.output-table th{
+    font-size: 18px;
+}
+th, tr {
+    padding: 5px;
+}
+
+.add-new {
+    float: right;
+    margin: 10px;
+}

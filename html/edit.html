@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+
     <!--CSS-->
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/general.css">
@@ -16,55 +20,58 @@
 
 <body>
     <section class="content">
-        <div class="nav-container">
-        </div>
-        <div class="form-container">
-            <h1>Editar información de contacto</h1>
-            <form>
-                <div class="form-input">
-                    <h2>Foto</h2>
-                    <input type="file" name="Foto" id="input-profile-picture" disabled>
-                </div>
-                <div class="form-input">
-                    <h2>Nombre Completo</h2>
-                    <input type="text" name="Nombre completo" id="input-name" disabled>
-                </div>
-                <div class="form-input">
-                    <h2>Correo Electrónico</h2>
-                    <input type="email" name="Correo" id="input-email" disabled>
-                </div>
-                <div class="form-input">
-                    <h2>Fecha de Nacimiento</h2>
-                    <input type="date" name="Fecha de Nacimiento" id="input-birth-date" disabled>
-                </div>
-                <div class="form-input form-radio">
-                    <h2>Género</h2>
-                    <input class="radio-filter" type="radio" name="Género" id="input-gender-choice-1" value="0" disabled>
-                    <label for="input-gender-choice-1">Masculino</label>
-
-                    <input class="radio-filter" type="radio" name="Género" id="input-gender-choice-2" value="1" disabled>
-                    <label for="input-gender-choice-2">Femenino</label>
-
-                    <input class="radio-filter" type="radio" name="Género" id="input-gender-choice-3" value="2" disabled>
-                    <label for="input-gender-choice-3">Otro</label>
-                </div>
-                <div class="form-input">
-                    <h2>Dirección</h2>
-                    <input type="textarea" name="Dirección" id="input-address">
-                </div>
-                <div class="form-input">
-                    <h2>Tipo de Contacto</h2>
-                    <select name="Tipo de Contacto" id="input-contact-type" disabled>
-                        <option value="0">Amigos</option>
-                        <option value="1">Familia</option>
-                        <option value="2">Trabajo</option>
-                        <option value="3">Otros</option>
-                    </select>
-                </div>
-                <div class="form-input">
-                    <button type="button" id="input-button-edit">Actualizar</button>
-                </div>
-            </form>
+        <div class="general-container">
+            <div class="title-container">
+                <h1><a href="list.html"><span class="material-icons">
+                    arrow_back
+                    </span></a>Edite información de contacto</h1>
+                
+            </div>
+            <div class="form-container">
+                <form>
+                    <div class="form-input">
+                        <h2>Foto</h2>
+                        <input type="file" name="Foto" id="input-profile-picture" disabled>
+                    </div>
+                    <div class="form-input">
+                        <h2>Nombre completo</h2>
+                        <input type="text" name="Nombre completo" id="input-name" disabled>
+                    </div>
+                    <div class="form-input">
+                        <h2>Correo electrónico</h2>
+                        <input type="email" name="Correo" id="input-email" disabled>
+                    </div>
+                    <div class="form-input">
+                        <h2>Fecha de nacimiento</h2>
+                        <input type="date" name="Fecha de Nacimiento" id="input-birth-date" disabled>
+                    </div>
+                    <div class="form-input form-radio">
+                        <h2>Género</h2>
+                        <input class="radio-filter" type="radio" name="Género" id="input-gender-choice-1" value="0" disabled>
+                        <label for="input-gender-choice-1">Masculino</label>
+    
+                        <input class="radio-filter" type="radio" name="Género" id="input-gender-choice-2" value="1" disabled>
+                        <label for="input-gender-choice-2">Femenino</label>
+    
+                        <input class="radio-filter" type="radio" name="Género" id="input-gender-choice-3" value="2" disabled>
+                        <label for="input-gender-choice-3">Otro</label>
+                    </div>
+                    <div class="form-input">
+                        <h2>Dirección</h2>
+                        <input type="textarea" name="Dirección" id="input-address">
+                    </div>
+                    <div>
+                        <h2>Tipo de contacto</h2>
+                        <select name="Tipo de Contacto" id="input-contact-type" disabled>
+                            <option value="0">Amigos</option>
+                            <option value="1">Familia</option>
+                            <option value="2">Trabajo</option>
+                            <option value="3">Otros</option>
+                        </select>
+                    </div>
+                    <button type="button" id="input-button-edit" class="submit-button">Actualizar</button>
+                </form>
+            </div>
         </div>
     </section>
 

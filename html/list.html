@@ -6,35 +6,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+
     <!--CSS-->
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/list.css">
 
 
     <title>Ver Contactos</title>
 </head>
 
 <body>
-    <section class="content">
-        <div class="nav-container">
+    <section class="content-light">
+        <div class="title-container">
+            <h1>Contactos</h1>
         </div>
         <div class="table-container">
-            <input type="text" name="Filtrar" id="content-filter" placeholder="Busqueda">
-            <table class="output-table" id="contact-list-table">
-                <thead>
-                    <tr>
-                        <th>Foto</th>
-                        <th>Nombre</th>
-                        <th>Correo</th>
-                        <th>Nacimiento</th>
-                        <th>Género</th>
-                        <th>Dirección</th>
-                        <th>Tipo</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
+            <div class="search-container">
+                <input type="text" name="Filtrar" id="content-filter" placeholder="Busqueda">
+                <span class="material-icons">
+                    search
+                </span>
+            </div>
+            <div class="table-spacer">
+                <table class="output-table" id="contact-list-table">
+                    <thead>
+                        <tr>
+                            <th>Foto</th>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Nacimiento</th>
+                            <th>Género</th>
+                            <th>Dirección</th>
+                            <th>Tipo</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <a href="register.html"><button class="add-new submit-button"><span class="material-icons">
+                    add
+                    </span></button></a>
+            </div>
         </div>
     </section>
 

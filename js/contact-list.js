@@ -18,18 +18,44 @@ const renderTable = async (filter) => {
 
             let date = moment(contact.birthDate).format("YYYY-MM-DD");
 
+
             row.insertCell().innerText = contact.profilePicture;
             row.insertCell().innerText = contact.fullName;
             row.insertCell().innerText = contact.email;
             row.insertCell().innerText = date;
-            row.insertCell().innerText = contact.gender;
+            switch (contact.gender) {
+                case 0:
+                    row.insertCell().innerText = "Masculino";
+                    break;
+                case 1:
+                    row.insertCell().innerText = "Femenino";
+                    break;
+                case 2:
+                    row.insertCell().innerText = "Otro";
+                    break;
+                default:
+                    break;
+            }
             row.insertCell().innerText = contact.address;
-            row.insertCell().innerText = contact.contactType;
-
+            switch (contact.contactType) {
+                case 0:
+                    row.insertCell().innerText = "Amigos";
+                    break;
+                case 1:
+                    row.insertCell().innerText = "Familia";
+                    break;
+                case 2:
+                    row.insertCell().innerText = "Trabajo";
+                    break;
+                case 3:
+                    row.insertCell().innerText = "Otro";
+                    break;
+            }
             let functionButton = row.insertCell();
 
             let editButton = document.createElement('button');
             editButton.type = 'button';
+            editButton.classList.add("submit-button");
             editButton.innerText = "Editar";
 
             editButton.addEventListener('click', () => {
@@ -38,12 +64,29 @@ const renderTable = async (filter) => {
             });
 
             let deleteButton = document.createElement('button');
+            deleteButton.classList.add("delete-button");
             deleteButton.type = 'button';
             deleteButton.innerText = "Borrar";
 
             deleteButton.addEventListener('click', () => {
                 let _id = contact._id;
-                deleteContact('/delete-contact', _id);
+                Swal.fire({
+                    'icon': 'danger',
+                    'title': "¿Está seguro que desea eliminar este contacto?",
+                    'buttons': true,
+                    'showDenyButton': true,
+                    'showConfirmButton': true,
+                    'dangerMode': true,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        deleteContact('/delete-contact', _id);
+                    } else if (result.isDenied) {
+                        Swal.fire({
+                            'icon': 'info',
+                            'title': "Operación cancelada.",
+                        })
+                    }
+                })
             })
 
             functionButton.appendChild(editButton);
